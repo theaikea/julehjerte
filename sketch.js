@@ -1,9 +1,9 @@
-let gridSize = 80; // Number of rows and columns
+let gridSize = 100; // Number of rows and columns
 let squareSize;
 let gridState = [];
 
 function setup() {
-  createCanvas(1024,1024);
+  createCanvas(1024, 1024);
   squareSize = width / gridSize;
 
   // Initialize the grid state
@@ -20,6 +20,8 @@ function setup() {
 function draw() {
   background(233, 233, 230); // White background
 
+  noStroke(); // Ensure no outlines for squares
+
   // Draw the grid in a heart shape
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
@@ -29,8 +31,13 @@ function draw() {
         } else {
           fill(233, 233, 230); // White color (background)
         }
-        noStroke();
-        rect(i * squareSize, j * squareSize, squareSize, squareSize);
+        // Slightly enlarge rectangles to prevent gaps
+        rect(
+          floor(i * squareSize), 
+          floor(j * squareSize), 
+          ceil(squareSize) + 1, 
+          ceil(squareSize) + 1
+        );
       }
     }
   }
