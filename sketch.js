@@ -3,7 +3,7 @@ let squareSize;
 let gridState = [];
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1024,1024);
   squareSize = width / gridSize;
 
   // Initialize the grid state
@@ -18,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-  background(255); // White background
+  background(233, 233, 230); // White background
 
   // Draw the grid in a heart shape
   for (let i = 0; i < gridSize; i++) {
@@ -27,7 +27,7 @@ function draw() {
         if (gridState[i][j]) {
           fill(213, 41, 41); // Red color
         } else {
-          fill(255); // White color (background)
+          fill(233, 233, 230); // White color (background)
         }
         noStroke();
         rect(i * squareSize, j * squareSize, squareSize, squareSize);
